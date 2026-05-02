@@ -1,8 +1,8 @@
 # Assignment 3 - Complete Documentation
 
-**Student Name**: [Your Full Name]  
-**Student ID**: [Your ID]  
-**Date Submitted**: [Submission Date]
+**Student Name**: [turki fahad alanzy]  
+**Student ID**: [444050787]  
+**Date Submitted**: [2/5/2026]
 
 ---
 
@@ -31,26 +31,26 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
+### Entry 1 - [May 2, 2026, 1:30 AM]
 **What I implemented**: 
-
+GitHub repository setup and student identification.
 **Challenges encountered**: 
-
+Connecting the local VS Code environment to the remote repository.
 **How I solved it**: 
-
+Used the Git Credential Manager for browser-based authentication.
 **Testing approach**: 
-
+Verified the "Sync Changes" button appeared in VS Code.
 **Time spent**: 
-
+30 mins
 ---
 
 ### Entry 2 - [Date, Time]
 **What I implemented**: 
-
+Initializing synchronization tools (ReentrantLock and Semaphore).
 **Challenges encountered**: 
-
+Missing imports for concurrent libraries.
 **How I solved it**: 
-
+import java.util.concurrent.locks.ReentrantLock; and import java.util.concurrent.Semaphore;.
 **Testing approach**: 
 
 **Time spent**: 
