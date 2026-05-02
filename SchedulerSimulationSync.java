@@ -113,10 +113,12 @@ class Process implements Runnable {
     
     @Override
     public void run() {
-        // TODO #3: Acquire CPU semaphore before executing
+       
         // This ensures only allowed number of processes run simultaneously
-        
-        try {
+                  
+            try {
+            SharedResources.cpuSemaphore.acquire();
+          
             if (startTime == -1) {
                 startTime = System.currentTimeMillis();
             }
@@ -146,7 +148,7 @@ class Process implements Runnable {
                 }
                 System.out.println();
                 
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ex) {
                 System.out.println(Colors.RED + "\n  ✗ " + name + " was interrupted." + Colors.RESET);
             }
             
@@ -174,12 +176,14 @@ class Process implements Runnable {
                                   Colors.RESET);
             }
             System.out.println();
-            
+              } catch (InterruptedException ex) {
+        Thread.currentThread().interrupt();
+
         } finally {
-            // TODO #4: Release CPU semaphore here
+            SharedResources.cpuSemaphore.release();
             // Always release in finally block to prevent deadlocks!
         }
-    }
+    } 
     
     private String createProgressBar(int progress, int width) {
         int filled = (progress * width) / 100;
@@ -212,7 +216,7 @@ class Process implements Runnable {
             System.out.println(Colors.BRIGHT_GREEN + "  ✓ " + Colors.BOLD + Colors.CYAN + name + 
                               Colors.RESET + Colors.BRIGHT_GREEN + " finished execution!" + Colors.RESET);
             System.out.println();
-        } catch (InterruptedException e) {
+        } catch (InterruptedException ex) {
             System.out.println(Colors.RED + "  ✗ " + name + " was interrupted." + Colors.RESET);
         }
     }
